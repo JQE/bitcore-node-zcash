@@ -1,10 +1,16 @@
 {
   "name": "bitcore-node-zcash",
   "description": "Full node with extended capabilities using Bitcore and Zcash",
-  "author": "BitPay <dev@bitpay.com>",
+  "author": {
+    "name": "BitPay",
+    "email": "dev@bitpay.com"
+  },
   "version": "3.1.2",
   "main": "./index.js",
-  "repository": "git://github.com/str4d/bitcore-node-zcash.git",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/str4d/bitcore-node-zcash.git"
+  },
   "homepage": "https://github.com/str4d/bitcore-node-zcash",
   "bugs": {
     "url": "https://github.com/bitpay/bitcore-node/issues"
@@ -38,7 +44,7 @@
     "regtest": "./scripts/regtest",
     "jshint": "jshint --reporter=node_modules/jshint-stylish ./lib",
     "coverage": "istanbul cover _mocha -- --recursive",
-    "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "tags": [
     "zcash",
@@ -47,7 +53,7 @@
   "dependencies": {
     "async": "^1.3.0",
     "bitcoind-rpc": "^0.6.0",
-    "bitcore-lib-zcash": "str4d/bitcore-lib-zcash",
+    "bitcore-lib-zcash": "github:str4d/bitcore-lib-zcash",
     "body-parser": "^1.13.3",
     "colors": "^1.1.2",
     "commander": "^2.8.1",
@@ -61,7 +67,9 @@
     "semver": "^5.0.1",
     "socket.io": "^1.4.5",
     "socket.io-client": "^1.4.5",
-    "zmq": "^2.14.0"
+    "zmq": "^2.14.0",
+    "bufferutil": "~1.2.1",
+    "utf-8-validate": "~1.2.1"
   },
   "optionalDependencies": {
     "bufferutil": "~1.2.1",
@@ -80,5 +88,12 @@
     "rimraf": "^2.4.2",
     "sinon": "^1.15.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "gitHead": "9212ef3c9e155f11da868d1b8203207658bef7af",
+  "readme": "Bitcore Node\n============\n\nA Bitcoin full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services. At the minimum a node has an interface to [Bitcoin Core with additional indexing](https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore) for more advanced address queries. Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.\n\n## Install\n\n```bash\nnpm install -g bitcore-node\nbitcore-node start\n```\n\nNote: For your convenience, we distribute bitcoind binaries for x86_64 Linux and x86_64 Mac OS X. Upon npm install, the binaries for your platform will be downloaded. For more detailed installation instructions, or if you want to compile the project yourself, then please see the Bitcore branch of [Bitcoin Core with additional indexing](https://github.com/bitpay/bitcoin/tree/0.12.1-bitcore).\n\n## Prerequisites\n\n- GNU/Linux x86_32/x86_64, or OSX 64bit *(for bitcoind distributed binaries)*\n- Node.js v0.10, v0.12 or v4\n- ZeroMQ *(libzmq3-dev for Ubuntu/Debian or zeromq on OSX)*\n- ~200GB of disk storage\n- ~8GB of RAM\n\n## Configuration\n\nBitcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Bitcore Node.\n\n```bash\nbitcore-node create -d <bitcoin-data-dir> mynode\ncd mynode\nbitcore-node install <service>\nbitcore-node install https://github.com/yourname/helloworld\n```\n\nThis will create a directory with configuration files for your node and install the necessary dependencies. For more information about (and developing) services, please see the [Service Documentation](docs/services.md).\n\n## Add-on Services\n\nThere are several add-on services available to extend the functionality of Bitcore:\n\n- [Insight API](https://github.com/bitpay/insight-api)\n- [Insight UI](https://github.com/bitpay/insight-ui)\n- [Bitcore Wallet Service](https://github.com/bitpay/bitcore-wallet-service)\n\n## Documentation\n\n- [Upgrade Notes](docs/upgrade.md)\n- [Services](docs/services.md)\n  - [Bitcoind](docs/services/bitcoind.md) - Interface to Bitcoin Core\n  - [Web](docs/services/web.md) - Creates an express application over which services can expose their web/API content\n- [Development Environment](docs/development.md) - Guide for setting up a development environment\n- [Node](docs/node.md) - Details on the node constructor\n- [Bus](docs/bus.md) - Overview of the event bus constructor\n- [Release Process](docs/release.md) - Information about verifying a release and the release process.\n\n## Contributing\n\nPlease send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/bitpay/bitcore/blob/master/CONTRIBUTING.md) file.\n\n## License\n\nCode released under [the MIT license](https://github.com/bitpay/bitcore-node/blob/master/LICENSE).\n\nCopyright 2013-2015 BitPay, Inc.\n\n- bitcoin: Copyright (c) 2009-2015 Bitcoin Core Developers (MIT License)\n",
+  "readmeFilename": "README.md",
+  "_id": "bitcore-node-zcash@3.1.2",
+  "_shasum": "164a2368729db979ec7c0c066be7c8a24c2c3b65",
+  "_from": "str4d/bitcore-node-zcash",
+  "_resolved": "git://github.com/str4d/bitcore-node-zcash.git#9212ef3c9e155f11da868d1b8203207658bef7af"
 }
